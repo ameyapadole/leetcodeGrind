@@ -9,8 +9,9 @@ class Solution:
             r -= 1
 
         return True
-    
-    def check_palindrome(self, s, l, r):
+
+    @staticmethod
+    def check_palindrome(s, l, r):
             while l < r:
                 if s[l] != s[r]:
                     return False
