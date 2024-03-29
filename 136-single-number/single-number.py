@@ -1,9 +1,11 @@
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
 
-        counter = collections.Counter(nums)
+        seen = defaultdict(int)
+        for num in nums:
+            seen[num] += 1
 
-        for i, count in counter.items():
-            if count == 1:
-                return i 
+        for num in seen:
+            if seen[num] == 1:
+                return num
         
