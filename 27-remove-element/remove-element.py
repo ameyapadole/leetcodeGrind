@@ -4,7 +4,8 @@ class Solution:
         r = len(nums)
         while l < r: 
             if nums[l] == val: 
-                nums[l] = nums[r - 1]
+                nums[l] = nums[r - 1] 
+                #Swap Current Element with the last element.
                 r -= 1
             else:
                 l += 1
