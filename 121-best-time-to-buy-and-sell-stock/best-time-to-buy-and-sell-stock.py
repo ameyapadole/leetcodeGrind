@@ -1,13 +1,12 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        minPrice = float('inf')
-        maxProfit = 0
+        maxprofit = 0 
+        minprice = float('inf')
 
-        for price in prices: 
-            minPrice = min(minPrice, price)
-            profit = price - minPrice
-            maxProfit = max(profit, maxProfit)
-        return maxProfit
+        for price in prices:
+            minprice = min(minprice, price)
+            profit = price - minprice
+            maxprofit = max(maxprofit, profit)
         
-        #Time = O(n)
-        #Space = O(1)
+        return maxprofit
+        
