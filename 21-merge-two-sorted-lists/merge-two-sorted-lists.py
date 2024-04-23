@@ -20,4 +20,10 @@ class Solution:
             l2.next = self.mergeTwoLists(l2.next, l1)
             return l2
 
-        
+        #Time = O(m + m)
+        # Because each recursive call increments the pointer l1 or l2 by 1.
+        # There will be exactly one call to mergeTwoLists per element in each list.
+        # Hence the Time complexit is liner in the combined size of the lists.
+
+        #Space = O(n + m)
+        # The first call does not return until both l1 and l2 have been reached, so n + m stack frames consumes n + m Space.
