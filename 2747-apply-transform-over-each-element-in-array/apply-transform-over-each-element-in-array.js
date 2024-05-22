@@ -4,11 +4,10 @@
  * @return {number[]}
  */
 var map = function(arr, fn) {
-    const res = []
-    arr.forEach((key, val) => {
-
-        res.push(fn(key, val))
-
-    })    
+    const res = [] 
+    arr.forEach((key, value) => {
+        res.push(fn(key, value))
+    })
     return res
+    
 };
