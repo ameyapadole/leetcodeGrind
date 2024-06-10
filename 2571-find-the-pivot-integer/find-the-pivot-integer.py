@@ -2,24 +2,22 @@ class Solution:
     def pivotInteger(self, n: int) -> int:
         l = 1 
         r = n 
-        leftsum = 1
-        rightsum = n 
 
-        if n == 1:
-            return n 
+        totalsum = n * (n + 1) // 2
 
         while l < r:
-            if leftsum < rightsum:
-                leftsum += l + 1
-                l += 1
+            mid = (l + r) // 2
+
+            if mid * mid - totalsum < 0: 
+                l = mid + 1
             else:
-                rightsum += r - 1
-                r -= 1
-
-            if leftsum == rightsum and l + 1 == r - 1:
-                return l + 1
+                r = mid 
         
-        return -1 
-
+        if l * l - totalsum == 0:
+            return l
+        
+        else:
+            return -1
+        
 
         
