@@ -16,5 +16,4 @@ class Solution:
                     b += 1
                 else:
                     c += 1
-        return result 
-                
+        return result
