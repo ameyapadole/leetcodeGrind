@@ -10,18 +10,16 @@ class Solution:
         q.append(root)
         res = []
 
-        while q: 
-            qLen = len(q)
+        while q:
             level = []
+            qLen = len(q)
             for i in range(qLen):
                 node = q.popleft()
-                if node:
+                if node: 
                     level.append(node.val)
                     q.append(node.left)
                     q.append(node.right)
-            if level: 
+            if level:
                 res.append(level)
         return res
-        
-
         
