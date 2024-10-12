@@ -1,7 +1,7 @@
 class Solution:
     def threeSumSmaller(self, nums, target):
         nums.sort()
-        sum = 0
+        count = 0
 
         for i in range(len(nums) - 2):
 
@@ -10,8 +10,8 @@ class Solution:
 
             while left < right:
                 if nums[i] + nums[left] + nums[right] < target:
-                    sum += right - left
+                    count += right - left
                     left += 1
                 else:
                     right -= 1
-        return sum
+        return count
