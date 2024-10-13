@@ -2,12 +2,13 @@ class Solution:
     def findBuildings(self, heights: List[int]) -> List[int]:
 
         maxHeight = -1
+        res = collections.deque([])
+        n = len(heights)
 
         if not heights:
             return []
         
-        res = collections.deque([])
-        for i in range(len(heights) - 1, -1, -1):
+        for i in reversed(range(n)):
             currHeight = heights[i]
             if currHeight > maxHeight:
                 res.appendleft(i)
