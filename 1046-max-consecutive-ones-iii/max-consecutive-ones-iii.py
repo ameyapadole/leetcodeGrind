@@ -3,12 +3,8 @@ class Solution:
         left = 0 
         for right, num in enumerate(nums):
             k -= 1 - num
-
-            if k < 0: 
+            if k < 0:
                 k += 1 - nums[left]
                 left += 1
-
-        result = right - left + 1
         
-        return result
-        
+        return right - left + 1
