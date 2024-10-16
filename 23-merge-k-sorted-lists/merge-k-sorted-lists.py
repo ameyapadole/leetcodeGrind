@@ -8,22 +8,25 @@ class HeapNode:
         self.node = node
     def __lt__(self, other):
         return self.node.val < other.node.val 
-
+        
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         dummy = ListNode(0)
-        curr = dummy 
+        current = dummy
         heap = []
 
         for l in lists:
             if l: 
-                 heapq.heappush(heap, HeapNode(l))
+                heapq.heappush(heap, HeapNode(l))
         
-        while heap:
-            heapNode = heapq.heappop(heap)
-            node = heapNode.node
-            curr.next = node
-            curr = curr.next
+        while heap: 
+            heap_node = heapq.heappop(heap)
+            node = heap_node.node
+            current.next = node
+            current = current.next
             if node.next:
                 heapq.heappush(heap, HeapNode(node.next))
+        
         return dummy.next
+
+                
