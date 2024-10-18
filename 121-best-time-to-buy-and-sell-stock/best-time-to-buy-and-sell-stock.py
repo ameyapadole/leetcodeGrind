@@ -1,14 +1,10 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-
-        maxprofit = 0 
-        minprice = float('inf')
+        min_price = float('inf')
+        max_profit = 0 
 
         for price in prices: 
-            minprice = min(minprice, price)
-            profit = price - minprice
-            maxprofit = max(maxprofit, profit)
-        return maxprofit
-
-        #Time Complexity = O(N)
-        #Space Complexity = O(1)        
+            max_profit = max(max_profit, price - min_price)
+            min_price = min(min_price, price)
+        return max_profit
+        
