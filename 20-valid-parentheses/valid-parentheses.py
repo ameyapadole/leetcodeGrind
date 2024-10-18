@@ -1,19 +1,17 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        mapping = {")":"(", 
+                   "}":"{",
+                   "]": "[" }
         stack = deque()
-        mapping = {")":"(", "}":"{", "]":"["}
 
-        for char in s:
-            if char in mapping:
-                topelement = stack.pop() if stack else '#'
+        for char in s: 
+            if char in mapping: 
+                top_element = stack.pop() if stack else '#'
 
-                if mapping[char] != topelement:
-                    return False
+                if mapping[char] != top_element:
+                    return False 
             else:
                 stack.append(char)
-        
-        return not stack
-        
-        #Time = O(n)
-        #Space = O(n)
-        
+
+        return not stack 
