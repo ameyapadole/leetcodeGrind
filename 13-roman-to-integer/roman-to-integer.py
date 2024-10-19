@@ -8,8 +8,8 @@ class Solution:
                     "D"  :   500,
                     "M"  :   1000 }
         total = 0 
-        
-        for i in range(len(s)): 
+
+        for i in range(len(s)):
             if i + 1 < len(s) and maps[s[i]] < maps[s[i + 1]]:
                 total -= maps[s[i]]
             else:
