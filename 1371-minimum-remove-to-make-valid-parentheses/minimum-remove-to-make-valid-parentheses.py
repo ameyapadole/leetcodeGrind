@@ -1,17 +1,17 @@
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
         stack = []
-        output =[]
+        output = []
         indexRemove = set()
 
-        for i, c in enumerate(s):
+        for i, c in enumerate(s): 
             if c not in "()":
                 continue
             if c == "(":
                 stack.append(i)
             elif not stack:
                 indexRemove.add(i)
-            elif c == ")":
+            else:
                 stack.pop()
         
         indexRemove = indexRemove.union(set(stack))
@@ -19,6 +19,5 @@ class Solution:
         for i, c in enumerate(s):
             if i not in indexRemove:
                 output.append(c)
-
         return "".join(output)
-        
+
