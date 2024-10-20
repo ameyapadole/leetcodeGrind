@@ -4,7 +4,7 @@ class Solution:
         output = []
         indexRemove = set()
 
-        for i, c in enumerate(s): 
+        for i ,c in enumerate(s):   
             if c not in "()":
                 continue
             if c == "(":
@@ -13,11 +13,11 @@ class Solution:
                 indexRemove.add(i)
             else:
                 stack.pop()
-        
+
         indexRemove = indexRemove.union(set(stack))
 
         for i, c in enumerate(s):
             if i not in indexRemove:
                 output.append(c)
-        return "".join(output)
 
+        return "".join(output)     
