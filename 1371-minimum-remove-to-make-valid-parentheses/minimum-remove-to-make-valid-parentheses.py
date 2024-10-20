@@ -11,7 +11,7 @@ class Solution:
                 stack.append(i)
             elif not stack:
                 indexRemove.add(i)
-            else:
+            elif c == ")":
                 stack.pop()
         
         indexRemove = indexRemove.union(set(stack))
