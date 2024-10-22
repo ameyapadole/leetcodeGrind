@@ -6,10 +6,8 @@
 #         self.right = right
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-        #DFS Solution 
-
         if not root:
-            return [] 
+            return []
 
         next_level = deque([root])
         rightside = []
@@ -17,15 +15,15 @@ class Solution:
         while next_level:
             curr_level = next_level
             next_level = deque()
-        
-            while curr_level: 
+
+            while curr_level:
+
                 node = curr_level.popleft()
 
-                if node.left: 
+                if node.left:
                     next_level.append(node.left)
                 if node.right:
                     next_level.append(node.right)
 
             rightside.append(node.val)
-        
-        return rightside
+        return rightside  
