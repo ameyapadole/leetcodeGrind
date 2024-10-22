@@ -8,4 +8,4 @@ class Solution:
             if currHeight > maxHeight: 
                 res.appendleft(i)
                 maxHeight = currHeight
-        return res
+        return list(res)
