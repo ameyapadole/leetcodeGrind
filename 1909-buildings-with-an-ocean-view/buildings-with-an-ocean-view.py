@@ -1,11 +1,11 @@
 class Solution:
     def findBuildings(self, heights: List[int]) -> List[int]:
         maxHeight = -1 
-        res = collections.deque()
+        res = []
 
         for i in reversed(range(len(heights))):
-            currHeight = heights[i]
-            if currHeight > maxHeight: 
-                res.appendleft(i)
-                maxHeight = currHeight
-        return list(res)
+            if maxHeight < heights[i]:
+                res.append(i)
+                maxHeight = heights[i]
+        res.reverse()
+        return res
