@@ -1,7 +1,7 @@
 class Solution:
     def findBuildings(self, heights: List[int]) -> List[int]:
         maxHeight = -1 
-        res = collections.deque([])
+        res = collections.deque()
 
         for i in reversed(range(len(heights))):
             currHeight = heights[i]
