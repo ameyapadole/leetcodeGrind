@@ -16,7 +16,6 @@ class Solution:
             curr_level = next_level
             next_level = deque()
             while curr_level:
-
                 node = curr_level.popleft()
                 if node.left:
                     next_level.append(node.left)
@@ -24,4 +23,4 @@ class Solution:
                     next_level.append(node.right)
             rightside.append(node.val)
         return rightside
-                
+        
