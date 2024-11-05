@@ -50,5 +50,6 @@ class Solution:
                     total += nest.getInteger() * depth
                 else:
                     total += dfs(nest.getList(), depth + 1)
-            return total
+            return total 
         return dfs(nestedList, 1)
+        
