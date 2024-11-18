@@ -1,23 +1,19 @@
 class Solution:
-    def findKthLargest(self, nums, k):
-        def quick_select(nums, k):
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        def quickselect(nums, k):
+            l, m, r = [], [], []
             pivot = random.choice(nums)
-            left, mid, right = [], [], []
 
             for num in nums:
                 if num > pivot:
-                    left.append(num)
+                    l.append(num)
                 elif num < pivot:
-                    right.append(num)
+                    r.append(num)
                 else:
-                    mid.append(num)
-            
-            if k <= len(left):
-                return quick_select(left, k)
-            
-            if len(left) + len(mid) < k:
-                return quick_select(right, k - len(left) - len(mid))
-            
+                    m.append(num)
+            if k <= len(l):
+                return quickselect(l, k)
+            if k > len(l) + len(m):
+                return quickselect(r, k - len(l) - len(m))
             return pivot
-        
-        return quick_select(nums, k)
+        return quickselect(nums, k)
