@@ -11,7 +11,7 @@ class Solution:
         
         l = 0 
         r = len(s) - 1
-
+        
         while l < r:
             if s[l] != s[r]:
                 return palindromeCheck(s, l, r - 1) or palindromeCheck(s, l + 1, r)
