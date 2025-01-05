@@ -6,8 +6,8 @@ class Solution:
 
         for i, c in enumerate(s):
             if c not in "()":
-                continue
-            elif c == '(':
+                continue 
+            if c == "(":
                 stack.append(i)
             elif not stack:
                 indexRemove.add(i)
@@ -15,9 +15,9 @@ class Solution:
                 stack.pop()
         
         indexRemove = indexRemove.union(set(stack))
-        
-        for i, c in enumerate(s):
+
+        for i,c in enumerate(s):
             if i not in indexRemove:
                 res.append(c)
-        return ''.join(res)
+        return "".join(res)
         
