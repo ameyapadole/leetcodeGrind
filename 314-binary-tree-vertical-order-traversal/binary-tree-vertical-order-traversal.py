@@ -7,12 +7,11 @@
 class Solution:
     def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         
-        if root is None:
+        if not root:
             return []
-
         min_col = max_col = 0
-        columnTable = defaultdict(list)
         q = deque([(root, 0)])
+        columnTable = defaultdict(list)
 
         while q:
             node, col = q.popleft()
@@ -24,4 +23,5 @@ class Solution:
 
                 q.append((node.left, col - 1))
                 q.append((node.right, col + 1))
-        return [columnTable[x] for x in range(min_col, max_col + 1)]
+        return [columnTable [x] for x in range(min_col, max_col + 1)]
+        
