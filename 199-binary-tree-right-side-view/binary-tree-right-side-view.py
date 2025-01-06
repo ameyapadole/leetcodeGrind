@@ -9,18 +9,17 @@ class Solution:
         if not root:
             return []
         
-        next_level = deque([root])
+        nextlevel = deque([(root)])
         rightside = []
 
-        while next_level: 
-            curr_level = next_level
-            next_level = deque()
-            while curr_level:
-                node = curr_level.popleft()
+        while nextlevel:
+            currlevel = nextlevel
+            nextlevel = deque()
+            while currlevel:
+                node = currlevel.popleft()
                 if node.left:
-                    next_level.append(node.left)
+                    nextlevel.append(node.left)
                 if node.right:
-                    next_level.append(node.right)
+                    nextlevel.append(node.right)
             rightside.append(node.val)
         return rightside
-        
