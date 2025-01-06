@@ -5,26 +5,16 @@
 #         self.left = None
 #         self.right = None
 
-
 class Solution:
-    def __init__(self):
-        self.ans = None
-
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
 
-        def recursive_tree(currNode : 'TreeNode'):
-            if not currNode:
-                return False
-            
-            left = recursive_tree(currNode.left)
-            right = recursive_tree(currNode.right)
-
-            mid = currNode == p or currNode == q
-
-            if mid + left + right >= 2: 
-                self.ans = currNode
-
-            return mid or left or right
-        recursive_tree(root)
-        return self.ans
+        if root is None or root == q or root == p:
+            return root
         
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+
+        if left and right:
+            return root
+        
+        return left if left else right
