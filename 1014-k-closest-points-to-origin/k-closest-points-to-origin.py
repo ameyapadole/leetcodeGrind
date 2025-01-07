@@ -4,30 +4,27 @@ class Solution:
     def kClosest(self, points: List[List[int]], k: int) -> List[List[int]]:
         def quickselect(points, k):
             pivot = random.choice(points)
-            pivot_dist = squared_distance(pivot)
-            closer, equal, farther = [], [], []
+            pivot_dist = pivot[0] ** 2 + pivot[1] ** 2  # Calculate squared distance of pivot
+            l, m, r = [], [], []
 
             # Partition points into three groups
             for point in points:
-                dist = squared_distance(point)
+                dist = point[0] ** 2 + point[1] ** 2  # Calculate squared distance
                 if dist < pivot_dist:
-                    closer.append(point)
+                    l.append(point)  # Points closer than the pivot
                 elif dist > pivot_dist:
-                    farther.append(point)
+                    r.append(point)  # Points farther than the pivot
                 else:
-                    equal.append(point)
+                    m.append(point)  # Points equal to the pivot distance
 
             # Determine where k falls
-            if len(closer) >= k:
-                return quickselect(closer, k)  # k closest points are in `closer`
-            elif len(closer) + len(equal) < k:
-                # Need to include points from `farther`
-                return closer + equal + quickselect(farther, k - len(closer) - len(equal))
+            if len(l) >= k:
+                return quickselect(l, k)  # k closest points are in `l`
+            elif len(l) + len(m) < k:
+                # Include points from `r`
+                return l + m + quickselect(r, k - len(l) - len(m))
             else:
-                # The k closest points are in `closer + equal`
-                return closer + equal
-
-        def squared_distance(point):
-            return point[0] ** 2 + point[1] ** 2
+                # The k closest points are in `l + m`
+                return l + m
 
         return quickselect(points, k)
