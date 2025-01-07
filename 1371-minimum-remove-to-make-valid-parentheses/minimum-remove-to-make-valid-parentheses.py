@@ -4,16 +4,16 @@ class Solution:
         res = []
         indexRemove = set()
 
-        for i,c in enumerate(s):
+        for i, c in enumerate(s):
             if c not in "()":
                 continue
             if c == "(":
                 stack.append(i)
-            elif not stack:
+            elif not stack: 
                 indexRemove.add(i)
             else:
                 stack.pop()
-            
+        
         indexRemove = indexRemove.union(set(stack))
 
         for i, c in enumerate(s):
